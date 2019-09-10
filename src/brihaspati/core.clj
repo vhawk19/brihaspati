@@ -1,7 +1,10 @@
 (ns brihaspati.core
-  (:gen-class))
+  (:gen-class)
+  (:require [brihaspati.http.server :as server]
+            [clojure.tools.logging :as log]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
+  "starts the brihaspati webserver"
+  (server/start "9001")
   (println "Hello, World!"))
