@@ -3,8 +3,7 @@ services:
  dev_db:
   image:  postgres:11-alpine
   environment:
-   POSTGES_DB: brihaspati_db
-   POSTGRES_USER: deva
+   POSTGRES_USER: brihaspati_db
    POSTGRES_PASSWORD: tara
   ports:
     - "7001:5432"

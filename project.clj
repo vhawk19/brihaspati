@@ -7,7 +7,8 @@
                   [ring "1.7.1"]
                   [org.clojure/tools.logging "0.4.1"]
                   [ragtime "0.8.0"]
-                  [aero "1.1.3"]]
+                  [aero "1.1.3"]
+                  [org.postgresql/postgresql "42.1.4"]]
   
                   :aliases {"migrate" ["run" "-m" "brihaspati.db.migrations/migrate"]
                   "migrate-test" ["run" "-m" "brihaspati.db.migrations/migrate-test"]

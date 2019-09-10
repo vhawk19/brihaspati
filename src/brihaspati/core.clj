@@ -3,7 +3,7 @@
   (:require [brihaspati.http.server :as server]
             [clojure.tools.logging :as log]
             [brihaspati.db.migrations :as db-migrations]
-            brihaspati.config :as config))
+            [brihaspati.config :as config]))
 
 (defn -main
   [& args]
