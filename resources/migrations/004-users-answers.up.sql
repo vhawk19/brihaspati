@@ -1,0 +1,1 @@
+CREATE TABLE users_answers(id SERIAL PRIMARY KEY, question_id INTEGER REFERENCES question(id),answer_id INTEGER REFERENCES answer(id),user_id INTEGER REFERENCES users(id));
