@@ -1,0 +1,10 @@
+{:port #env port
+ :db-spec {:dbtype   #env DB_TYPE
+           :dbname   #profile {:default #env DB_NAME
+                               :test #env DB_NAME_TEST}
+           :host     #env HOST
+           :port     #profile {:default #env DB_PORT
+                               :test #env DB_PORT_TEST}
+           :user     #profile {:default #env DB_USER
+                               :test #env USER_TEST}
+           :password #env DB_PASSWORD}}
