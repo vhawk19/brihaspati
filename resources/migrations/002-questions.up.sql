@@ -1,0 +1,1 @@
+CREATE TABLE questions(id SERIAL PRIMARY KEY,question TEXT,created_by INTEGER REFERENCES users(id));
