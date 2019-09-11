@@ -11,12 +11,12 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: lein deps
-    - name: Run tests
-      run: lein test
+    - name: Make migrations
+      run: lein migrate
     - name: Build the uberjar
       run:  lein uberjar
     - uses: actions/upload-artifact@master
       with:
         name: brihaspati-0.1.0-SNAPSHOT-standalone.jar
         path: target/uberjar
-    - run: cat target/uberjar/brihaspati-0.1.0-SNAPSHOT-standalone.jar
+
