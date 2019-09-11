@@ -8,13 +8,13 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     env:
-      - DB_TYPE: postgresql
-      - DB_NAME: brihaspati_db
-      - DB_USER: brihaspati_db
-      - DB_PASSWORD: tara
-      - DB_PORT: 7001
-      - DB_HOST: localhost
-      - port: 9001
+       DB_TYPE: postgresql
+       DB_NAME: brihaspati_db
+       DB_USER: brihaspati_db
+       DB_PASSWORD: tara
+       DB_PORT: 7001
+       DB_HOST: localhost
+       port: 9001
     services: 
       postgres:
         image: postgres:latest
