@@ -20,7 +20,7 @@ jobs:
     steps:
     - name: set the environment variables
       env:
-        DB_NAME= ${{ secrets.DB_NAME }}
+        DB_NAME: ${{ secrets.DB_NAME }}
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: lein deps
