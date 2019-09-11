@@ -6,7 +6,14 @@ jobs:
   build:
  
     runs-on: ubuntu-latest
-    services: postgresql
+    services:
+      - postgres:latest
+
+    variables:
+      POSTGRES_DB: brihaspati_db
+      POSTGRES_USER: brihaspati_db
+      POSTGRES_PASSWORD: "tara"
+
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
