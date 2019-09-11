@@ -8,8 +8,12 @@
                   [org.clojure/tools.logging "0.4.1"]
                   [ragtime "0.8.0"]
                   [aero "1.1.3"]
-                  [org.postgresql/postgresql "42.1.4"]]
-  
+                  [compojure "1.6.1"]
+                  [org.postgresql/postgresql "42.1.4"]
+                  [org.clojure/java.jdbc "0.7.9"]
+                  [ring/ring-defaults "0.3.2"]
+                  [ring/ring-json "0.4.0"]]
+      
                   :aliases {"migrate" ["run" "-m" "brihaspati.db.migrations/migrate"]
                   "migrate-test" ["run" "-m" "brihaspati.db.migrations/migrate-test"]
                   "rollback" ["run" "-m" "brihaspati.db.migrations/rollback"]
