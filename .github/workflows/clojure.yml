@@ -19,4 +19,4 @@ jobs:
       with:
         name: brihaspati-0.1.0-SNAPSHOT-standalone.jar
         path: target/uberjar
-    - run: cat brihaspati-0.1.0-SNAPSHOT-standalone.jar
+    - run: cat target/uberjar/brihaspati-0.1.0-SNAPSHOT-standalone.jar
