@@ -18,7 +18,11 @@ jobs:
           POSTGRES_PASSWORD: "tara"
 
     steps:
-    - name: set the env variables
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: lein deps
+      
+    - name: Set the environment variables and Make migrations
       env: 
        DB_TYPE: postgresql
        DB_NAME: brihaspati_db
@@ -27,10 +31,6 @@ jobs:
        DB_PORT: 7001
        DB_HOST: localhost
        port: 9001
-    - uses: actions/checkout@v1
-    - name: Install dependencies
-      run: lein deps
-    - name: Make migrations
       run: lein migrate
     - name: Build the uberjar
       run:  lein uberjar
