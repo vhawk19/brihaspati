@@ -1,23 +1,21 @@
 name: Clojure CI
 
 
-services: 
-  postgres:
-    image: postgres:latest
-    ports:
-      - 7001:5432
-    env:
-      POSTGRES_DB: brihaspati_db
-      POSTGRES_USER: brihaspati_db
-      POSTGRES_PASSWORD: "tara"
-
-
 on: [push]
 
 jobs:
   build:
  
     runs-on: ubuntu-latest
+    services: 
+      postgres:
+        image: postgres:latest
+        ports:
+          - 7001:5432
+        env:
+          POSTGRES_DB: brihaspati_db
+          POSTGRES_USER: brihaspati_db
+          POSTGRES_PASSWORD: "tara"
 
     steps:
     - uses: actions/checkout@v1
