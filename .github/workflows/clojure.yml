@@ -25,12 +25,12 @@ jobs:
     - name: Set the environment variables and Make migrations
       env: 
        DB_TYPE: postgresql
-       DB_NAME: brihaspati_db
-       DB_USER: brihaspati_db
-       DB_PASSWORD: tara
-       DB_PORT: 7001
-       DB_HOST: localhost
-       port: 9001
+       DB_NAME: "brihaspati_db"
+       DB_USER: "brihaspati_db"
+       DB_PASSWORD: "tara"
+       DB_PORT: "7001"
+       DB_HOST: "localhost"
+       port: "9001"
       run: lein migrate
     - name: Build the uberjar
       run:  lein uberjar
