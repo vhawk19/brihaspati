@@ -6,8 +6,6 @@ on: [push]
 jobs:
   build:
     name: Build
-    env:
-        DB_NAME= ${{ secrets.DB_NAME }}
     runs-on: ubuntu-latest
     services: 
       postgres:
@@ -20,6 +18,9 @@ jobs:
           POSTGRES_PASSWORD: "tara"
 
     steps:
+    - name: set the environment variables
+      env:
+        DB_NAME= ${{ secrets.DB_NAME }}
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: lein deps
