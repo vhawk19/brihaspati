@@ -6,8 +6,7 @@ jobs:
   build:
  
     runs-on: ubuntu-latest
-    services:
-      - postgres:latest
+    services: postgres:latest
 
     variables:
       POSTGRES_DB: brihaspati_db
