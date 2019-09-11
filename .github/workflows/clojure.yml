@@ -16,7 +16,6 @@ jobs:
     - name: Build the uberjar
       run:  lein uberjar
     - uses: actions/upload-artifact@master
-    - name: upload artifacts
       with:
         name: brihaspati-0.1.0-SNAPSHOT-standalone.jar
         path: target/uberjar
