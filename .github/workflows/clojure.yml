@@ -11,7 +11,6 @@ services:
       POSTGRES_USER: brihaspati_db
       POSTGRES_PASSWORD: "tara"
 
-variables:
 
 on: [push]
 
