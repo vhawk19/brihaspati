@@ -1,4 +1,4 @@
-(ns thursdays.models.hyphen-to-underscore)
+(ns brihaspati.models.hyphen-to-underscore)
 
 (defn replace-hyphen [map-entry]
   (let [map-key (name (first map-entry))
