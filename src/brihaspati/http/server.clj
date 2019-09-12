@@ -4,7 +4,8 @@
                 [ring.util.response :as response]
                 [compojure.core :refer [defroutes GET POST PUT DELETE ANY]]
                 [clojure.tools.logging :as log]
-                [brihaspati.http.handlers.questions :as questions]))
+                [brihaspati.http.handlers.questions :as questions]
+                [brihaspati.http.handlers.users :as users]))
 
 
 (defn handler 
@@ -19,7 +20,8 @@
             (wrap-json-response)))
 
 (defroutes app-routes
-        (POST "/api/question" [] (wrap questions/create-question-handler)))
+        (POST "/api/question" [] (wrap questions/create-question-handler))
+        (POST "/api/user" [] (wrap users/create-user-handler)))
 
 (defn int-parse [port]
     (try 
