@@ -32,7 +32,7 @@ jobs:
        DB_HOST: "localhost"
        port: "9001"
     - name: check the env variables
-       run: printenv | grep DB
+       run: printenv 
       run: lein migrate
     - name: Build the uberjar
       run:  lein uberjar
