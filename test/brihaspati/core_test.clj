@@ -3,5 +3,5 @@
             [brihaspati.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
+  (testing "This is a dummy test"
     (is (= 1 1))))

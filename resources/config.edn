@@ -6,5 +6,5 @@
            :port     #profile {:default #env DB_PORT
                                :test #env DB_PORT_TEST}
            :user     #profile {:default #env DB_USER
-                               :test #env USER_TEST}
+                               :test #env DB_USER_TEST}
            :password #env DB_PASSWORD}}
