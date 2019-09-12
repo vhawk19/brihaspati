@@ -31,6 +31,8 @@ jobs:
        DB_PORT: "7001"
        DB_HOST: "localhost"
        port: "9001"
+     - name: check the env variables
+       run: printenv | grep DB
       run: lein migrate
     - name: Build the uberjar
       run:  lein uberjar
