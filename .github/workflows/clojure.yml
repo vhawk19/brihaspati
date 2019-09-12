@@ -7,33 +7,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    services: 
-      postgres:
-        image: postgres:latest
-        ports:
-          - 7001:5432
-        env:
-          POSTGRES_DB: brihaspati_db
-          POSTGRES_USER: brihaspati_db
-          POSTGRES_PASSWORD: "tara"
-
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
-      run: lein deps
-      
-    - name: Set the environment variables and Make migrations
-      env: 
-       DB_TYPE: postgresql
-       DB_NAME: "brihaspati_db"
-       DB_USER: "brihaspati_db"
-       DB_PASSWORD: "tara"
-       DB_PORT: "7001"
-       DB_HOST: "localhost"
-       port: "9001"
-    - name: check the env variables
-       run: printenv 
-      run: lein migrate
+      run: lein deps 
     - name: Build the uberjar
       run:  lein uberjar
     - uses: actions/upload-artifact@master
