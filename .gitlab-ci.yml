@@ -25,6 +25,7 @@ build:
 test:
     stage: test
     script:
+     - lein migrate-test
      - lein test
 
 
