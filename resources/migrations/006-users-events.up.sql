@@ -1,0 +1,1 @@
+CREATE TABLE users-events( id  INTEGER SERIAL PRIMARY KEY, event_id INTEGER REFERENCES events(id),user_id INTEGER REFERENCES users(id));
