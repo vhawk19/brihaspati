@@ -5,3 +5,9 @@
 
 (defn create-answer [answer db-spec]
     (jdbc/insert! db-spec :answers answer))
+
+(defn get-answer-aid [aid db-spec]
+    (first(jdbc/query db-spec (-> (select :*)
+                                  (from :answers)
+                                  (where [:= :id aid])
+                                  sql/format))))
