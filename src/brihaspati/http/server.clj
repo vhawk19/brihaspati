@@ -5,7 +5,8 @@
                 [compojure.core :refer [defroutes GET POST PUT DELETE ANY]]
                 [clojure.tools.logging :as log]
                 [brihaspati.http.handlers.questions :as questions]
-                [brihaspati.http.handlers.users :as users]))
+                [brihaspati.http.handlers.users :as users]
+                [brihaspati.http.handlers.answers :as answers]))
 
 
 (defn handler 
@@ -21,7 +22,8 @@
 
 (defroutes app-routes
         (POST "/api/question" [] (wrap questions/create-question-handler))
-        (POST "/api/user" [] (wrap users/create-user-handler)))
+        (POST "/api/user" [] (wrap users/create-user-handler))
+        (POST "/api/answer" [] (wrap answers/create-answer-handler)))
 
 (defn int-parse [port]
     (try 
