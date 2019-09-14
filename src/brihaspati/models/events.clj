@@ -3,5 +3,4 @@
                 [clojure.tools.logging :as log]))
 
 (defn create-event [event-details db-spec]
-    (log/info event-details)
     (events/create-event event-details db-spec))

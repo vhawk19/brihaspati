@@ -7,4 +7,4 @@
 (defn create-event-handler [req]
     (let [db-spec (config/db-spec)
           request-body (:body req)]
-        (models/create-event request-body db-spec)))
+        (response (models/create-event request-body db-spec))))
