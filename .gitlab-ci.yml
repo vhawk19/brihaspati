@@ -37,6 +37,4 @@ deploy:
    - "chmod 700 ./sshkey"
    - "chmod 400 ./sshkey/app-key.pem"
    - "scp -i ./sshkey/app-key.pem -o StrictHostKeyChecking=no ${CI_PROJECT_DIR}/target/uberjar/brihaspati-0.1.0-SNAPSHOT-standalone.jar ubuntu@ec2-13-232-192-167.ap-south-1.compute.amazonaws.com:" 
-   - "ssh -i ./sshkey/app-key.pem -o StrictHostKeyChecking=no ubuntu@ec2-13-232-192-167.ap-south-1.compute.amazonaws.com 'sudo chmod 700 brihaspati-0.1.0-SNAPSHOT-standalone.jar   && sudo systemctl stop execute-uberjar.service && sudo systemctl start execute-uberjar.service' " 
-  only:
-   - master
+   - "ssh -i ./sshkey/app-key.pem -o StrictHostKeyChecking=no ubuntu@ec2-13-232-192-167.ap-south-1.compute.amazonaws.com 'sudo chmod 700 brihaspati-0.1.0-SNAPSHOT-standalone.jar   && sudo systemctl stop execute-uberjar.service && sudo systemctl start execute-uberjar.service' "
