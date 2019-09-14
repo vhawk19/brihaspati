@@ -8,7 +8,8 @@
                 [brihaspati.http.handlers.users :as users]
                 [brihaspati.http.handlers.answers :as answers]
                 [brihaspati.http.handlers.users-answers :as users-answers]
-                [brihaspati.http.handlers.events :as events]))
+                [brihaspati.http.handlers.events :as events]
+                [brihaspati.http.handlers.users-events :as users-events]))
 
 
 (defn handler 
@@ -27,7 +28,8 @@
         (POST "/api/user" [] (wrap users/create-user-handler))
         (POST "/api/answer" [] (wrap answers/create-answer-handler))
         (POST "/api/user-answer" [] (wrap users-answers/create-users-answers-handler))
-        (POST "/api/event" [] (wrap events/create-event-handler)))
+        (POST "/api/event" [] (wrap events/create-event-handler))
+        (POST "/api/user-event" [] (wrap users-events/create-user-event-handler)))
 
 (defn int-parse [port]
     (try 
