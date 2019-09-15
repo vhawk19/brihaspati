@@ -1,0 +1,1 @@
+ALTER TABLE questions ADD event_id INTEGER REFERENCES events(id);

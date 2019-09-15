@@ -1,0 +1,1 @@
+ALTER TABLE users_answers ADD event_id INTEGER REFERENCES events(id);
