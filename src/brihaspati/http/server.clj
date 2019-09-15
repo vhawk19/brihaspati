@@ -32,7 +32,8 @@
         (POST "/api/user-answer" [] (wrap users-answers/create-users-answers-handler))
         (POST "/api/event" [] (wrap events/create-event-handler))
         (POST "/api/user-event" [] (wrap users-events/create-user-event-handler))
-        (GET   "/api/question/:event-id" [] (wrap questions/get-questions-event)) )
+        (GET  "/api/question/:event-id" [] (wrap questions/get-questions-event))
+        (GET  "/api/answer/:event-id" [] (wrap answers/get-answers-event-handler)))
 
 (defn int-parse [port]
     (try 
