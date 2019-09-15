@@ -1,6 +1,8 @@
 (ns brihaspati.http.server
     (:require   [ring.adapter.jetty :as jetty]
                 [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
+                [ring.middleware.params :refer [wrap-params]]
+                [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
                 [ring.util.response :as response]
                 [compojure.core :refer [defroutes GET POST PUT DELETE ANY]]
                 [clojure.tools.logging :as log]
@@ -29,7 +31,8 @@
         (POST "/api/answer" [] (wrap answers/create-answer-handler))
         (POST "/api/user-answer" [] (wrap users-answers/create-users-answers-handler))
         (POST "/api/event" [] (wrap events/create-event-handler))
-        (POST "/api/user-event" [] (wrap users-events/create-user-event-handler)))
+        (POST "/api/user-event" [] (wrap users-events/create-user-event-handler))
+        (GET   "/api/question/:event-id" [] (wrap questions/get-questions-event)) )
 
 (defn int-parse [port]
     (try 
@@ -39,7 +42,9 @@
 (defonce server (atom nil))
 
 (defn start [port]
-    (reset! server (jetty/run-jetty app-routes {:port (int-parse port)})))
+    (reset! server (jetty/run-jetty (-> app-routes
+                                        (wrap-defaults (-> api-defaults ))
+                                        (ring.middleware.params/wrap-params)) {:port (int-parse port)})))
 
 (defn stop []
     (.stop @server)
