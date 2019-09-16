@@ -4,6 +4,7 @@
                 [brihaspati.config :as config]
                 [brihaspati.db.answers :refer [get-answer-aid]]
                 [brihaspati.models.answers  :as models]
+                [brihaspati.models.events :as event-models]
                 [brihaspati.models.questions :as question-models]))
 (def not-nil? (complement nil?))
 
@@ -21,3 +22,22 @@
         (let [[{:keys [id] :as result}] (models/create-answer valid-answer db-spec)]
             (is(= (get-answer-aid id db-spec) 
                 result)))))
+
+
+;----
+;Sucess test for get-answers-event
+;----
+
+(def valid-event {:id (rand-int 1000000) :state 1})
+(def get-event-id (:id (first (event-models/create-event valid-event db-spec))))
+
+(def valid-question {:question "why did the chicken cross the road?" :event_id get-event-id})
+(def get-question-id (:id (first (question-models/create-question valid-question db-spec))))
+
+(def valid-answer {:is_correct true :event_id get-event-id :option_no 4 :question_id get-question-id :answer "why did the chicken cross the road?"})
+
+(deftest get-user-answers-event 
+    (testing "tries fetching a user-answer of a prticualar event"
+        (let [[{:keys [event_id] :as result}] (models/create-answer valid-answer db-spec)]
+            (is (= (first (models/get-answers-event event_id db-spec))
+                   result)))))

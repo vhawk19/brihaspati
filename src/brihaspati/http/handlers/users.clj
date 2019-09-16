@@ -7,4 +7,4 @@
 (defn create-user-handler [req]
     (let [request-body (:body req)
           db-spec (config/db-spec)]
-        (models/create-user request-body db-spec)))
+        (response (models/create-user request-body db-spec))))

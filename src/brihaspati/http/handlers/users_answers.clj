@@ -7,4 +7,9 @@
 (defn create-users-answers-handler [req]
     (let [db-spec (config/db-spec)
           request-body (:body req)]
-        (models/create-user-answer request-body db-spec)))
+        (response (models/create-user-answer request-body db-spec))))
+
+(defn get-users-answers-event-handler [req]
+    (let [db-spec (config/db-spec)
+    event-id (Integer/parseInt (get-in req [:params :event-id]))]
+      (response (models/get-user-answer-event event-id db-spec))))

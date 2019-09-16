@@ -3,5 +3,7 @@
                 [clojure.tools.logging :as log]))
 
 (defn create-event [event-details db-spec]
-    (log/info event-details)
     (events/create-event event-details db-spec))
+
+(defn get-event [eid db-spec] 
+    (events/get-event-eid eid db-spec))

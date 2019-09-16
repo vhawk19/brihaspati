@@ -11,3 +11,9 @@
                                   (from :answers)
                                   (where [:= :id aid])
                                   sql/format))))
+
+(defn get-answers-eid [eid db-spec]
+    (jdbc/query db-spec ( ->  (select :*)
+                                        (from :answers)
+                                        (where [:= :event_id eid])
+                                        sql/format)))
