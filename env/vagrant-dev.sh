@@ -16,3 +16,6 @@ export DB_USER=brihaspati_db
 export HOST=localhost
 export DB_PASSWORD=tara
 export DB_PORT=7001
+export DB_NAME_TEST=postgres
+export DB_USER_TEST=brihaspati_db
+export DB_PORT_TEST=7001
