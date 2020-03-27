@@ -1,1 +1,1 @@
-CREATE TABLE questions(id SERIAL PRIMARY KEY,question TEXT,created_by INTEGER REFERENCES users(id));
+CREATE TABLE questions(id SERIAL PRIMARY KEY,question_text TEXT,event_id TEXT,question_type TEXT,created_by INTEGER,resource INTEGER REFERENCES resources(id));

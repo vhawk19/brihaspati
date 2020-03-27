@@ -1,1 +1,0 @@
-CREATE TABLE users_events( id  SERIAL, event_id INTEGER REFERENCES events(id),user_id INTEGER REFERENCES users(id));
