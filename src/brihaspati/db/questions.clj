@@ -6,6 +6,11 @@
 (defn create-question [question db-spec]
     (jdbc/insert! db-spec :questions question))
 
+(defn create-questions [questions db-spec]
+    (jdbc/insert-multi! db-spec :questions
+                                questions))
+
+
 (defn get-question-qid [qid db-spec]
     (first(jdbc/query db-spec (-> (select :*)
                                   (from :questions)

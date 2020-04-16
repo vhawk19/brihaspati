@@ -1,8 +1,10 @@
 (ns brihaspati.models.answers
-    (:require   [brihaspati.db.answers :as answers]))
+    (:require   [brihaspati.db.answers :as answers]
+                [brihaspati.models.conversions :as convert]
+                [clojure.tools.logging :as log]))
 
-(defn create-answer [answer-details db-spec]
-    (answers/create-answer answer-details db-spec))
+(defn create-answers [answer-details db-spec]
+    (answers/create-answers answer-details db-spec))
 
 (defn get-answers-event [event-id db-spec]
     (answers/get-answers-eid event-id db-spec))

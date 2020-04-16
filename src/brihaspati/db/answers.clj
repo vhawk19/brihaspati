@@ -6,6 +6,10 @@
 (defn create-answer [answer db-spec]
     (jdbc/insert! db-spec :answers answer))
 
+(defn create-answers [answers db-spec]
+    (jdbc/insert-multi! db-spec :answers    
+                                answers))
+
 (defn get-answer-aid [aid db-spec]
     (first(jdbc/query db-spec (-> (select :*)
                                   (from :answers)

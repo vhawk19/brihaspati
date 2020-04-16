@@ -1,4 +1,13 @@
-(ns brihaspati.models.hyphen-to-underscore)
+(ns brihaspati.models.conversions)
+
+
+
+(defn to-vec 
+  [x]
+  (->> x
+      (map #(vec (vals %))) 
+      (vec)))
+
 
 (defn replace-hyphen [map-entry]
   (let [map-key (name (first map-entry))

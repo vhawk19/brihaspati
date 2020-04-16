@@ -31,14 +31,6 @@
 (defn test-db-spec []
   (:db-spec (config {:profile :test})))
 
-(defn oauth2-spec []
-  (:oauth2-spec (config)))
-
-(defn oauth2-redirect-uri []
-  (-> (config)
-      :oauth2-spec
-      :google
-      :oauth2-redirect-uri))
 
 (defn port []
   (:port (config)))
