@@ -1,1 +1,0 @@
-CREATE TABLE user_response(id SERIAL PRIMARY KEY,user_id TEXT, event_id TEXT,question_id INTEGER REFERENCES question(id),answer INTEGER REFERENCES answer(id),descriptive_answer TEXT);
