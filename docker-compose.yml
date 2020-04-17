@@ -7,3 +7,13 @@ services:
    POSTGRES_PASSWORD: tara
   ports:
     - "7001:5432"
+brihaspati-server:
+    restart: 'always'
+    ports:
+      - '8080:8080'
+    env_file: 
+      - env/db-test.env
+    build:
+      context: .
+      dockerfile: Dockerfile
+
