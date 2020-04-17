@@ -7,7 +7,7 @@ services:
    POSTGRES_PASSWORD: tara
   ports:
     - "7001:5432"
-  brihaspati_server:
+ brihaspati_server:
     restart: 'always'
     ports:
       - '8080:8080'
