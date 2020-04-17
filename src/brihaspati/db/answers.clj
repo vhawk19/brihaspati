@@ -10,6 +10,12 @@
     (jdbc/insert-multi! db-spec :answers    
                                 answers))
 
+(defn get-answers-aid-eid [eid db-spec]
+    (jdbc/query db-spec ( ->  (select [:id :answer])
+                                        (from :answers)
+                                        (where [:= :event_id eid])
+                                        sql/format)))
+
 (defn get-answer-aid [aid db-spec]
     (first(jdbc/query db-spec (-> (select :*)
                                   (from :answers)

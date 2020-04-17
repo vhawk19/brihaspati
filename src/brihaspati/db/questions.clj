@@ -10,6 +10,11 @@
     (jdbc/insert-multi! db-spec :questions
                                 questions))
 
+(defn get-questions-qid [eid db-spec]
+    (jdbc/query db-spec ( ->  (select [:ID :question_text] )
+                                        (from :questions)
+                                        (where [:= :event_id eid])
+                                        sql/format)))
 
 (defn get-question-qid [qid db-spec]
     (first(jdbc/query db-spec (-> (select :*)

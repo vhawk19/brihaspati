@@ -4,6 +4,7 @@
                 [clojure.tools.logging :as log]))
 
 (defn create-answers [answer-details db-spec]
+    
     (answers/create-answers answer-details db-spec))
 
 (defn get-answers-event [event-id db-spec]

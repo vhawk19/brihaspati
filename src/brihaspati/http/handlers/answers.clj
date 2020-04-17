@@ -7,6 +7,7 @@
 (defn create-answer-handler [req]
     (let [db-spec (config/db-spec)
           request-body (:body req)]
+          (log/info req)
         (response (models/create-answers request-body db-spec))))
 
 (defn get-answers-event-handler [req]
