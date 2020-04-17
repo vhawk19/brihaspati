@@ -1,20 +1,24 @@
-version: "3"
+version: '3.0'
 services:
- dev_db:
-  image:  postgres:11-alpine
-  environment:
-   POSTGRES_USER: brihaspati_db
-   POSTGRES_PASSWORD: tara
-  ports:
-    - "7001:5432"
- brihaspati_server:
+  postgres:
+    restart: 'always'
+    environment:
+      - "POSTGRES_USER=brihaspati_db"
+      - "POSTGRES_DB=postgres"
+      - "POSTGRES_PASSWORD=tara"
+    image: 'postgres:alpine'
+  brihaspati_server:
     restart: 'always'
     ports:
       - '8080:8080'
-      - '7001:7001'
-    env_file: 
-      - env/db-test.env
+    environment:
+      - "DB_USER=brihaspati_db"
+      - "DB_NAME=postgres"
+      - "DB_TYPE=postgresql"
+      - "DB_PORT=5432"
+      - "PORT=8080"
+      - "DB_PASSWORD=tara"
+      - "DB_HOST=postgres"
     build:
       context: .
       dockerfile: Dockerfile
-
