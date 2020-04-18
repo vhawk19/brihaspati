@@ -8,7 +8,8 @@
                 [brihaspati.http.handlers.user_response :as user_response]
                 [brihaspati.http.handlers.questions :as questions]
                 [brihaspati.http.handlers.answers :as answers]
-                [brihaspati.http.handlers.quiz :as quiz]))
+                [brihaspati.http.handlers.quiz :as quiz]
+                [brihaspati.http.handlers.token :as token]))
 
 
 (defn wrap [handler]
@@ -17,6 +18,7 @@
             (wrap-json-response)))
 
 (defroutes app-routes
+        (GET "/user/token-verification" [] (wrap token/get-user-details))
         (POST "/api/questions" [] (wrap questions/create-question-handler))
         (POST "/api/answers" [] (wrap answers/create-answer-handler))
         (POST "/api/response/:event-id" [] (wrap user_response/create-response-handler))
