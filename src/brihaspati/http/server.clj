@@ -17,12 +17,12 @@
             (wrap-json-response)))
 
 (defroutes app-routes
-        (POST "/api/question" [] (wrap questions/create-question-handler))
-        (POST "/api/answer" [] (wrap answers/create-answer-handler))
+        (POST "/api/questions" [] (wrap questions/create-question-handler))
+        (POST "/api/answers" [] (wrap answers/create-answer-handler))
         (POST "/api/response/:event-id" [] (wrap user_response/create-response-handler))
         (GET  "/api/quiz/:event-id" [] (wrap quiz/get-quiz-handler))
-        (GET  "/api/question/:event-id" [] (wrap questions/get-questions-event-handler))
-        (GET  "/api/answer/:event-id" [] (wrap answers/get-answers-event-handler)))
+        (GET  "/api/questions/:event-id" [] (wrap questions/get-questions-event-handler))
+        (GET  "/api/answers/:event-id" [] (wrap answers/get-answers-event-handler)))
 
 
 (defn int-parse [port]

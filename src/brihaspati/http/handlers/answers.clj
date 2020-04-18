@@ -8,7 +8,8 @@
     (let [db-spec (config/db-spec)
           request-body (:body req)]
           (log/info req)
-        (response (models/create-answers request-body db-spec))))
+          (models/create-answers request-body db-spec))
+          (response {:status 200}))
 
 (defn get-answers-event-handler [req]
     (let [db-spec (config/db-spec)

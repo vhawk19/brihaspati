@@ -9,4 +9,5 @@
          request-body (:body req)
          event-id (get-in req [:params :event-id])]
          (log/info request-body)
-         (response (models/create-response request-body db-spec event-id))))
+         (models/create-response request-body db-spec event-id))
+         (response {:status 200}))
