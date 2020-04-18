@@ -8,10 +8,16 @@
     (let [db-spec (config/db-spec)
           request-body (:body req)]
           (log/info req)
-          (models/create-questions request-body db-spec))
-          (response {:status 200}))
+          (try 
+            (models/create-questions request-body db-spec)
+            (response nil)
+            (catch Exception e (status (response (str "caught exception" (.getMessage e)))
+                                       500)))))
 
 (defn get-questions-event-handler [req ]
   (let [db-spec (config/db-spec)
         event-id  (get-in req [:params :event-id])]
-  (response (models/get-questions-event  event-id (config/db-spec)))))
+      (try 
+            (response (models/get-questions-event event-id db-spec))
+            (catch Exception e (status (response (str "caught exception" (.getMessage e)))
+                                        500)))))

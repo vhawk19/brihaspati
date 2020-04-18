@@ -9,5 +9,8 @@
          request-body (:body req)
          event-id (get-in req [:params :event-id])]
          (log/info request-body)
-         (models/create-response request-body db-spec event-id))
-         (response {:status 200}))
+         (try
+            (models/create-response request-body db-spec event-id)
+            (response nil)
+            (catch Exception e (status (response (str "caught exception" (.getMessage e)))
+                                        500)))))
