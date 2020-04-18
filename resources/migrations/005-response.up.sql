@@ -1,7 +1,8 @@
 CREATE TABLE response(
-    id SERIAL PRIMARY KEY,
-    user_id TEXT,
-    event_id TEXT,
-    question_id INTEGER REFERENCES questions(id),
-    answer_id INTEGER REFERENCES answers(id),
+    response_id SERIAL UNIQUE NOT NULL,
+    user_id TEXT NOT NULL,
+    event_id TEXT NOT NULL,
+    question_id INTEGER REFERENCES questions(question_id) NOT NULL,
+    answer_id INTEGER REFERENCES answers(answer_id) NOT NULL,
+    PRIMARY KEY (question_id, user_id),
     descriptive_answer TEXT);
