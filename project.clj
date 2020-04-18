@@ -13,7 +13,8 @@
                   [org.clojure/java.jdbc "0.7.9"]
                   [ring/ring-defaults "0.3.2"]
                   [ring/ring-json "0.4.0"]
-                  [honeysql "0.9.4"]]
+                  [honeysql "0.9.4"]
+                  [clj-jwt "0.1.1"]]
       
                   :aliases {"migrate" ["run" "-m" "brihaspati.db.migrations/migrate"]
                   "migrate-test" ["run" "-m" "brihaspati.db.migrations/migrate-test"]
