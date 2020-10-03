@@ -1,4 +1,4 @@
-# brihaspati
+# brihaspati [![DeepSource](https://deepsource.io/gh/vhawk19/brihaspati.svg/?label=active+issues&show_trend=true)](https://deepsource.io/gh/vhawk19/brihaspati/?ref=repository-badge)
 
 ## License
 
